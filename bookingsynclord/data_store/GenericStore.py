@@ -62,7 +62,19 @@ class GenericStore:
         logger.debug("URL generated : {}".format(url))
 
         json = self.get_request_bookingsync(url)
+        return json
 
-        print json
+    def get_json_by_id(self,id):
+        """return a single element of entity in JSON format
+        :param id: ID of the element queried
+        :type  id: string or integer
+        :rtype: dict / Json loaded object
+        """
+        logger.debug("Calling get_json_by_id for entity : {}".format(self.entity_type))
+        endpoint = GenericStore.get_endpoint(self.entity_type,"GET")
+        url = GenericStore.build_url(endpoint.format(id=str(id)))
+        logger.debug("URL generated : {}".format(url))
 
+        json = self.get_request_bookingsync(url)
+        return json
 

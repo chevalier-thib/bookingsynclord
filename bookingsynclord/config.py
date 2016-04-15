@@ -7,6 +7,6 @@ REDIRECT_URI="urn:ietf:wg:oauth:2.0:oob"
 
 
 BOOKINGSYNC_ENDPOINT = {
-    "RENTAL" : {"LIST" : "/rentals"}
-    "BOOKINGS" : {"LIST" : "/bookings"}
+    "RENTAL" : {"LIST" : "/rentals"},
+    "BOOKING" : {"LIST" : "/bookings", "GET" : "/bookings/{id}/"}
 }
