@@ -20,10 +20,10 @@ class CredentialManager:
 
         :rtype: (<String:new_access_token>,<String:new_refresh_token)>
         """
-        url_request = config.APIU_ENDPOINT + config.APIURL_REFRESH_TOKEN
+        url_request = config.APIURL_TOKEN
 
         refresh_param="client_id={}&client_secret={}&refresh_token={}&expires_in=1234&grant_type=refresh_token&redirect_uri=urn:ietf:wg:oauth:2.0:oob".format(self.client_id,self.client_secret, refresh_token)
-        r = request.post(url_request,params=refresh_param,timeout=config.REQUEST_DEFAULT_TIMEOUT)
+        r = requests.post(url_request,params=refresh_param,timeout=config.REQUEST_DEFAULT_TIMEOUT)
         json_response = r.json()
         refresh_token = json_response["refresh_token"]
         access_token = json_response["access_token"]
@@ -39,7 +39,7 @@ class CredentialManager:
         :rtype: (<String:new_access_token>,<String:new_refresh_token)>
         """
         if self.refresh_token is not None:
-            return self.refresh_token()
+            return self.use_refresh_token(self.refresh_token)
         else:
             raise LookupError('No refresh_token set')
 

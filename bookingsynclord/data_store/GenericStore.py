@@ -49,6 +49,7 @@ class GenericStore:
         """
         headers = {'Authorization': 'Bearer {}'.format(self.credential_manager.access_token)}
         json_r = requests.get(url=url,headers=headers)
+        json_r.raise_for_status()
         return json_r.text
 
 
