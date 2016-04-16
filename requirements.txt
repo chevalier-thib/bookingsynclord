@@ -1,1 +1,4 @@
 requests==2.9.1
+bookingsynclord==0.1
+nose==1.3.7
+requests==2.9.1

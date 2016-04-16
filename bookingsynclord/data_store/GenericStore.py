@@ -22,23 +22,19 @@ class GenericStore:
         """
         return bookingsynclord.config.APIURL_ENDPOINT + endpoint
 
-    @staticmethod
-    def get_endpoint(entity,action):
-        """Get the value of the endpoint for an entity/action.
+    def get_endpoint(self,action):
+        """Get the value of the endpoint for an action.
 
         For example, to get the endpoint to list all bookings (/bookings)
-        you would use this function with entity=BOOKING and action=LIST.
+        you would use this function with action=LIST.
 
         All API endpoints usable are defined in the config.
-
-        :param entity: bookingsync entity type
-        :type  entity: string or unicode
         :param action: Action you intend to do (CREATE,LIST,GET)
         :type  action: String
         :rtype: <string:endpoint value>
         """
 
-        return bookingsynclord.config.BOOKINGSYNC_ENDPOINT[entity][action]
+        return bookingsynclord.config.BOOKINGSYNC_ENDPOINT[self.entity_type][action]
 
 
     def get_request_bookingsync(self,url):
@@ -58,7 +54,7 @@ class GenericStore:
         :rtype: dict / Json loaded object
         """
         logger.debug("Calling list_json for entity : {}".format(self.entity_type))
-        endpoint = GenericStore.get_endpoint(self.entity_type,"LIST")
+        endpoint = GenericStore.get_endpoint("LIST")
         url = GenericStore.build_url(endpoint)
         logger.debug("URL generated : {}".format(url))
 
@@ -72,7 +68,7 @@ class GenericStore:
         :rtype: dict / Json loaded object
         """
         logger.debug("Calling get_json_by_id for entity : {}".format(self.entity_type))
-        endpoint = GenericStore.get_endpoint(self.entity_type,"GET")
+        endpoint = GenericStore.get_endpoint("GET")
         url = GenericStore.build_url(endpoint.format(id=str(id)))
         logger.debug("URL generated : {}".format(url))
 

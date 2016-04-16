@@ -8,5 +8,7 @@ REDIRECT_URI="urn:ietf:wg:oauth:2.0:oob"
 
 BOOKINGSYNC_ENDPOINT = {
     "RENTAL" : {"LIST" : "/rentals"},
-    "BOOKING" : {"LIST" : "/bookings", "GET" : "/bookings/{id}/"}
+    "BOOKING" : {"LIST" : "/bookings", "GET" : "/bookings/{id}/"},
+    "TEST" : {"LIST" : "/tests", "GET" : "/test/{id}/"}, #UnitTest entity
+
 }
