@@ -1,7 +1,5 @@
 # bookingsynclord
-BookingSync bnblord custom API
+BNBLORD custom and unofficial implementation of BookingSync API (http://bookingsync.com)
 
-Server side implementation of bookingSync API.
-This is used exclusively by Batch and Scripts.
 
-Current status : Pre-Alpha.
+Current status : BETA.
