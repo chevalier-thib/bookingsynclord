@@ -1,4 +1,4 @@
-from setuptools import setup
+from setuptools import setup, find_packages
 
 setup(name='bookingsynclord',
       version='0.1',
@@ -7,5 +7,6 @@ setup(name='bookingsynclord',
       author='Francois Lavie',
       author_email='francois.lavie@gmail.com',
       license='GNU',
-      packages=['bookingsynclord'],
+      package_dir={'': 'bookingsynclord'},
+      packages=find_packages('bookingsynclord'),
       zip_safe=False)

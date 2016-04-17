@@ -7,4 +7,4 @@ class Rental(Entity):
     Documentation : http://developers.bookingsync.com/reference/endpoints/rentals/
     """
     def __init__(self,id = None):
-        return super(Rentals,self)__init__("rentals",id)
+        return super(Rentals,self).__init__("rentals",id)
