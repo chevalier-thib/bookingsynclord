@@ -7,6 +7,5 @@ setup(name='bookingsynclord',
       author='Francois Lavie',
       author_email='francois.lavie@gmail.com',
       license='GNU',
-      package_dir={'': 'bookingsynclord'},
-      packages=find_packages('bookingsynclord'),
+      packages= ['bookingsynclord','bookingsynclord.entities','bookingsynclord.data_store','bookingsynclord.tools'],
       zip_safe=False)
