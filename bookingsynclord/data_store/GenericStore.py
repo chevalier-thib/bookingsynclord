@@ -116,7 +116,7 @@ class GenericStore:
         endpoint = self.get_endpoint("DELETE",entity)
         url = GenericStore.build_url(endpoint)
         r = self.delete_request_bookingsync(url)
-        return r.status_code
+        return r
 
     def put(self,entity):
         """API PUT call to update entity.

@@ -1,6 +1,6 @@
 import config
 import logging
-from tools.CrendentialManager import CredentialManger
+from tools.CredentialManager import CredentialManager
 from data_store.RentalStore import RentalStore
 from data_store.BookingStore import BookingStore
 
