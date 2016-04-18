@@ -13,6 +13,10 @@ BOOKINGSYNC_ENDPOINT = {
                   "POST"   : "/rentals/{rental_id}/bookings",
                   "DELETE" : "/bookings/{id}",
                   "PUT"    : "/bookings/{id}"},
+    "sources"  : {"LIST"   : "/sources",
+                  "GET"    : "/sources/{id}",
+                  "POST"   : "/sources",
+                  "PUT"    : "/sources/{id}"},
     "tests" : {"LIST" : "/tests",#UnitTest entity
                "GET" : "/test/{id}/",
                "PUT" : "/tests/{id}"},
