@@ -1,4 +1,5 @@
-import Entity
+import Entity, Client, Booking, BookingComment, BookingFee, Rental, Source
+
 def entity_generator(entity_type):
     """Return class element corresponding to Entity type."""
     types = Entity.Entity.__subclasses__()
