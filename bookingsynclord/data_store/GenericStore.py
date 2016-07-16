@@ -46,16 +46,23 @@ class GenericStore:
             return(template.format(**entity.key_mapping()))
 
 
-    def get_request_bookingsync(self,url):
+    def get_request_bookingsync(self,url, page=1):
         """Send request to bookingSync and return Json format object.
         Pass the credential in the header.
 
         :param url: url to post request to.
         """
         headers = {'Authorization': 'Bearer {}'.format(self.credential_manager.access_token)}
-        json_r = requests.get(url=url,headers=headers)
+        params = {}
+        if page > 1:
+            params['page'] = page
+        json_r = requests.get(url=url,headers=headers, params=params)
         json_r.raise_for_status()
-        return json_r.json()
+        json = json_r.json()
+        if json_r.headers.get('X-Total-Pages', 0) > 1:
+            json['max-page'] = json_r.headers.get('X-Total-Pages', 0)
+            json['current-page'] = page
+        return json
 
     def post_request_bookingsync(self,url,data):
         """Send POST request to bookingSync and return Json format object.
@@ -131,7 +138,7 @@ class GenericStore:
         r = self.put_request_bookingsync(url,entity._to_json_list())
         return r
 
-    def list_json(self):
+    def list_json(self, page=1):
         """return json containing the result of list call.
         :rtype: dict / Json loaded object
         """
@@ -140,7 +147,7 @@ class GenericStore:
         url = GenericStore.build_url(endpoint)
         logger.debug("URL generated : {}".format(url))
 
-        json = self.get_request_bookingsync(url)
+        json = self.get_request_bookingsync(url, page=page)
         return json
 
     def get(self,id):
