@@ -7,6 +7,10 @@ from data_store.SourceStore import SourceStore
 from data_store.BookingCommentStore import BookingCommentStore
 from data_store.BookingFeeStore import BookingFeeStore
 from data_store.ClientStore import ClientStore
+from data_store.PeriodStore import PeriodStore
+from data_store.RateStore import RateStore
+from data_store.RateTableStore import RateTableStore
+from data_store.RateRuleStore import RateRuleStore
 
 logger = logging.getLogger(__name__)
 
@@ -19,3 +23,7 @@ class BookingSyncAPI:
         self.booking_comment_store = BookingCommentStore(self.credential_manager)
         self.booking_fee_store = BookingFeeStore(self.credential_manager)
         self.client_store = ClientStore(self.credential_manager)
+        self.rate_store = RateStore(self.credential_manager)
+        self.period_store = PeriodStore(self.credential_manager)
+        self.rate_rule_store = RateRuleStore(self.credential_manager)
+        self.rate_table = RateTableStore(self.credential_manager)
