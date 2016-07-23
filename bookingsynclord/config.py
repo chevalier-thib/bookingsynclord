@@ -48,7 +48,7 @@ BOOKINGSYNC_ENDPOINT = {
                   "POST"   : "/rates_tables/",
                   "DELETE" : "/rates_tables/{id}",
                   "PUT"    : "/rates_tables/{id}"},
-    "rates_tables" : {"LIST"   : "/rates_rules",
+    "rates_rules" : {"LIST"   : "/rates_rules",
                   "GET"    : "/rates_rules/{id}",
                   "POST"   : "/rates_tables/{rate_table_id}/rates_rules",
                   "DELETE" : "/rates_rules/{id}",
