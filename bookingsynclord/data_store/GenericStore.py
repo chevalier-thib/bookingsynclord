@@ -156,7 +156,7 @@ class GenericStore:
         :type  id: string or integer
         :rtype: entities.Entity
         """
-        json = self.get_json_by_id(id)
+        json = self.get_json_by_id(int(id))
         new_entity = entity_generator(self.entity_type)()
         new_entity.load_from_json(json[self.entity_type][0])
         return new_entity
