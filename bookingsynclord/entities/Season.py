@@ -6,4 +6,4 @@ class Season(Entity):
     Documentation : http://developers.bookingsync.com/reference/endpoints/seasons/
     """
     def __init__(self,id = None):
-        return super(Seasons,self).__init__("seasons",id)
+        return super(Season,self).__init__("seasons",id)

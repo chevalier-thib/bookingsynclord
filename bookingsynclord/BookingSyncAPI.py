@@ -12,6 +12,7 @@ from data_store.RateStore import RateStore
 from data_store.RateTableStore import RateTableStore
 from data_store.RateRuleStore import RateRuleStore
 from data_store.SeasonStore import SeasonStore
+from data_store.NightlyRateMapStore import NightlyRateMapStore
 
 logger = logging.getLogger(__name__)
 
@@ -29,3 +30,4 @@ class BookingSyncAPI:
         self.rate_rule_store = RateRuleStore(self.credential_manager)
         self.rate_table_store = RateTableStore(self.credential_manager)
         self.season_store = SeasonStore(self.credential_manager)
+        self.nightly_rates_map_store = NightlyRateMapStore(self.credential_manager)

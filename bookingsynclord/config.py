@@ -7,7 +7,11 @@ REDIRECT_URI="urn:ietf:wg:oauth:2.0:oob"
 
 
 BOOKINGSYNC_ENDPOINT = {
-    "rentals" : {"LIST"    : "/rentals"},
+    "rentals" : {"LIST"   : "/rentals",
+                  "GET"    : "/rentals/{id}",
+                  "POST"   : "/rentals",
+                  "DELETE" : "/rentals/{id}",
+                  "PUT"    : "/rentals/{id}"},
     "bookings" : {"LIST"   : "/bookings",
                   "GET"    : "/bookings/{id}",
                   "POST"   : "/rentals/{rental_id}/bookings",
@@ -21,6 +25,9 @@ BOOKINGSYNC_ENDPOINT = {
                   "GET"    : "/clients/{id}",
                   "POST"   : "/clients",
                   "PUT"    : "/clients/{id}"},
+    "nightly_rate_maps" :  {"LIST"   : "/nightly_rate_maps",
+                  "GET"    : "/nightly_rate_maps/{id}",
+                  "PUT"    : "/nightly_rate_maps/{id}"},
     "booking_comments" :
                  {"LIST": "/booking_comments",
                   "GET"    : "/booking_comments/{id}",
