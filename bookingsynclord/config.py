@@ -7,10 +7,11 @@ REDIRECT_URI="urn:ietf:wg:oauth:2.0:oob"
 
 
 BOOKINGSYNC_ENDPOINT = {
-    "rentals" : {"LIST"    : "/rentals",
-                 "GET"     : "/rentals/{id}",
-                 "POST"    : "/rentals",
-                 "PUT"     : "/rentals/{id}"},
+    "rentals" : {"LIST"   : "/rentals",
+                  "GET"    : "/rentals/{id}",
+                  "POST"   : "/rentals",
+                  "DELETE" : "/rentals/{id}",
+                  "PUT"    : "/rentals/{id}"},
     "bookings" : {"LIST"   : "/bookings",
                   "GET"    : "/bookings/{id}",
                   "POST"   : "/rentals/{rental_id}/bookings",
@@ -24,6 +25,9 @@ BOOKINGSYNC_ENDPOINT = {
                   "GET"    : "/clients/{id}",
                   "POST"   : "/clients",
                   "PUT"    : "/clients/{id}"},
+    "nightly_rate_maps" :  {"LIST"   : "/nightly_rate_maps",
+                  "GET"    : "/nightly_rate_maps/{id}",
+                  "PUT"    : "/nightly_rate_maps/{id}"},
     "booking_comments" :
                  {"LIST": "/booking_comments",
                   "GET"    : "/booking_comments/{id}",
@@ -51,7 +55,7 @@ BOOKINGSYNC_ENDPOINT = {
                   "POST"   : "/rates_tables/",
                   "DELETE" : "/rates_tables/{id}",
                   "PUT"    : "/rates_tables/{id}"},
-    "rates_tables" : {"LIST"   : "/rates_rules",
+    "rates_rules" : {"LIST"   : "/rates_rules",
                   "GET"    : "/rates_rules/{id}",
                   "POST"   : "/rates_tables/{rate_table_id}/rates_rules",
                   "DELETE" : "/rates_rules/{id}",
