@@ -1,4 +1,4 @@
-import Entity, Client, Booking, BookingComment, BookingFee, Rental, Source, Rate, Period, RateRule, RateTable,Season, NightlyRateMap
+import Entity, Fee, RentalFee, Client, Payment, Booking, BookingComment,BookingPayment,  BookingFee, Rental, Source, Rate, Period, RateRule, RateTable,Season, NightlyRateMap
 
 def entity_generator(entity_type):
     """Return class element corresponding to Entity type."""
