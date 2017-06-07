@@ -4,7 +4,7 @@ class BookingComment(Entity):
 
     Documentation : http://developers.bookingsync.com/reference/endpoints/booking_comments/
     """
-    ENTITY_TYPE = "booking_comments"
+    ENTITY_TYPE = "bookings_comments"
     def __init__(self,id = None):
-        return super(BookingComment,self).__init__("booking_comments",id)
+        return super(BookingComment,self).__init__("bookings_comments",id)
 

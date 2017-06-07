@@ -6,4 +6,4 @@ class BookingFeeStore(GenericStore):
     BookingSync doc : http://developers.bookingsync.com/reference/endpoints/sources/
     """
     def __init__(self,credential_manager):
-        super(BookingFeeStore, self).__init__(credential_manager,"booking_fees")
+        super(BookingFeeStore, self).__init__(credential_manager,"bookings_fees")

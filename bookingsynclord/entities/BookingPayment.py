@@ -4,6 +4,6 @@ class BookingPayment(Entity):
 
     Documentation : http://developers.bookingsync.com/reference/endpoints/bookings_payments/
     """
-    ENTITY_TYPE = "booking_payments"
+    ENTITY_TYPE = "bookings_payments"
     def __init__(self,id = None):
-        return super(BookingPayment,self).__init__("booking_payments",id)
+        return super(BookingPayment,self).__init__("bookings_payments",id)
