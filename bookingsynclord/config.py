@@ -50,6 +50,11 @@ BOOKINGSYNC_ENDPOINT = {
                  {"LIST": "/bookings_payments",
                   "GET"    : "/bookings_payments/{id}",
                  },
+    "reviews" :
+                 {"LIST": "/reviews",
+                  "GET"    : "/reviews/{id}",
+                  "POST"    : "/reviews",
+                 },
     "periods"  : {"LIST"   : "/periods",
                   "GET"    : "/periods/{id}",
                   "POST"   : "/seasons/{season_id}/periods",
