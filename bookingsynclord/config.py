@@ -38,9 +38,9 @@ BOOKINGSYNC_ENDPOINT = {
     "nightly_rate_maps" :  {"LIST"   : "/nightly_rate_maps",
                   "GET"    : "/nightly_rate_maps/{id}",
                   "PUT"    : "/nightly_rate_maps/{id}"},
-    "bookings_comments" :
-                 {"LIST": "/bookings_comments",
-                  "GET"    : "/bookings_comments/{id}",
+    "booking_comments" :
+                 {"LIST"   : "/booking_comments",
+                  "GET"    : "/booking_comments/{id}",
                  },
     "bookings_fees" :
                  {"LIST": "/bookings_fees",
