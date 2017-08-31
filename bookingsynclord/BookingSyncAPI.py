@@ -18,12 +18,14 @@ from data_store.SeasonStore import SeasonStore
 from data_store.RentalFeeStore import RentalFeeStore
 from data_store.FeeStore import FeeStore
 from data_store.NightlyRateMapStore import NightlyRateMapStore
+from data_store.PhotoStore import PhotoStore
 
 logger = logging.getLogger(__name__)
 
+
 class BookingSyncAPI:
-    def __init__(self,client_id,client_secret,access_token,refresh_token=None):
-        self.credential_manager = CredentialManager(client_id,client_secret,access_token,refresh_token)
+    def __init__(self, client_id, client_secret, access_token, refresh_token=None):
+        self.credential_manager = CredentialManager(client_id, client_secret, access_token, refresh_token)
         self.rentals_store = RentalStore(self.credential_manager)
         self.reviews_store = ReviewStore(self.credential_manager)
         self.booking_store = BookingStore(self.credential_manager)
@@ -41,3 +43,4 @@ class BookingSyncAPI:
         self.nightly_rates_map_store = NightlyRateMapStore(self.credential_manager)
         self.rental_fee_store = RentalFeeStore(self.credential_manager)
         self.fee_store = FeeStore(self.credential_manager)
+        self.photo_store = PhotoStore(self.credential_manager)
