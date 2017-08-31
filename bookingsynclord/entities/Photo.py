@@ -2,7 +2,7 @@ from Entity import Entity
 
 
 class Photo(Entity):
-    ENTITY_TYPE = "periods"
+    ENTITY_TYPE = "photos"
     """Represent a Photo element.
 
     Documentation : http://developers.bookingsync.com/reference/endpoints/photos/

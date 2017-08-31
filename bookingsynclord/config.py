@@ -84,7 +84,7 @@ BOOKINGSYNC_ENDPOINT = {
     "tests": {"LIST": "/tests",  # UnitTest entity
               "GET": "/test/{id}/",
               "PUT": "/tests/{id}"},
-    "photo": {"LIST": "/photos",
+    "photos": {"LIST": "/photos",
               "GET": "/photos/{id}",
               "POST": "/rentals/{rental_id}/photos",
               "PUT": "/photo/{id}",
