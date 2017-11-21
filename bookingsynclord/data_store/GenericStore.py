@@ -173,7 +173,7 @@ class GenericStore:
         endpoint = self.get_endpoint("GET")
         url = GenericStore.build_url(endpoint.format(id=str(id)))
         logger.debug("URL generated : {}".format(url))
-        json = self.get_request_bookingsync(url)
+        json = self.get_request_bookingsync(url, filters=filters)
         logger.debug("returned : {}".format(json))
         return json
 
