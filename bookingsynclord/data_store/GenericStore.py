@@ -152,18 +152,18 @@ class GenericStore:
         json = self.get_request_bookingsync(url, page=page, filters=filters)
         return json
 
-    def get(self,id):
+    def get(self,id, filters={}):
         """return a single element of entity
         :param id: ID of the element queried
         :type  id: string or integer
         :rtype: entities.Entity
         """
-        json = self.get_json_by_id(int(id))
+        json = self.get_json_by_id(int(id), filters=filters)
         new_entity = entity_generator(self.entity_type)()
         new_entity.load_from_json(json[self.entity_type][0])
         return new_entity
 
-    def get_json_by_id(self,id):
+    def get_json_by_id(self,id, filters={}):
         """return a single element of entity in JSON format
         :param id: ID of the element queried
         :type  id: string or integer
@@ -173,7 +173,7 @@ class GenericStore:
         endpoint = self.get_endpoint("GET")
         url = GenericStore.build_url(endpoint.format(id=str(id)))
         logger.debug("URL generated : {}".format(url))
-        json = self.get_request_bookingsync(url)
+        json = self.get_request_bookingsync(url, filters=filters)
         logger.debug("returned : {}".format(json))
         return json
 
