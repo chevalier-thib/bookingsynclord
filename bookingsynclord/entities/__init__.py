@@ -1,5 +1,5 @@
 import Entity, Fee, RentalFee, Client, Payment, Booking, Review, BookingComment, BookingPayment, BookingFee, Rental, \
-    Source, Rate, Period, RateRule, RateTable, Season, NightlyRateMap, Photo
+    Source, Rate, Period, RateRule, RateTable, Season, NightlyRateMap, Photo, RentalAmenity, Amenity
 
 
 def entity_generator(entity_type):

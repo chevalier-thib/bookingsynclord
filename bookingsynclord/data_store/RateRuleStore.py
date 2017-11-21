@@ -1,5 +1,6 @@
 from GenericStore import GenericStore
 
+
 class RateRuleStore(GenericStore):
     """Store used to manage Source entities.
 

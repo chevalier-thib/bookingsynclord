@@ -19,6 +19,8 @@ from data_store.RentalFeeStore import RentalFeeStore
 from data_store.FeeStore import FeeStore
 from data_store.NightlyRateMapStore import NightlyRateMapStore
 from data_store.PhotoStore import PhotoStore
+from data_store.RentalAmenityStore import RentalAmenityStore
+from data_store.AmenityStore import AmenityStore
 
 logger = logging.getLogger(__name__)
 
@@ -44,3 +46,5 @@ class BookingSyncAPI:
         self.rental_fee_store = RentalFeeStore(self.credential_manager)
         self.fee_store = FeeStore(self.credential_manager)
         self.photo_store = PhotoStore(self.credential_manager)
+        self.rental_amenity = RentalAmenityStore(self.credential_manager)
+        self.amenity = AmenityStore(self.credential_manager)
