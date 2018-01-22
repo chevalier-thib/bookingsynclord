@@ -6,11 +6,12 @@ from bookingsynclord.entities import entity_generator
 
 logger = logging.getLogger(__name__)
 
+
 class GenericStore:
     """Abstract class with common properties for all Store."""
     __metaclass__ = ABCMeta
 
-    def __init__(self,credential_manager,entity_type):
+    def __init__(self, credential_manager, entity_type):
         self.credential_manager = credential_manager
         self.entity_type = entity_type
 
@@ -24,7 +25,7 @@ class GenericStore:
         """
         return bookingsynclord.config.APIURL_ENDPOINT + endpoint
 
-    def get_endpoint(self,action,entity=None):
+    def get_endpoint(self, action, entity=None):
         """Get the value of the endpoint for an action.
 
         For example, to get the endpoint to list all bookings (/bookings)
@@ -45,8 +46,7 @@ class GenericStore:
             template = bookingsynclord.config.BOOKINGSYNC_ENDPOINT[self.entity_type][action]
             return(template.format(**entity.key_mapping()))
 
-
-    def get_request_bookingsync(self,url, page=1, filters={}):
+    def get_request_bookingsync(self, url, page=1, filters={}):
         """Send request to bookingSync and return Json format object.
         Pass the credential in the header.
 
@@ -58,7 +58,7 @@ class GenericStore:
             params['page'] = page
         for key, value in filters.items():
             params[key] = value
-        json_r = requests.get(url=url,headers=headers, params=params)
+        json_r = requests.get(url=url, headers=headers, params=params)
         json_r.raise_for_status()
         json = json_r.json()
         if json_r.headers.get('X-Total-Pages', 0) > 1:
@@ -66,7 +66,7 @@ class GenericStore:
             json['current-page'] = page
         return json
 
-    def post_request_bookingsync(self,url,data):
+    def post_request_bookingsync(self, url, data):
         """Send POST request to bookingSync and return Json format object.
         Pass the credential in the header.
 
@@ -74,11 +74,11 @@ class GenericStore:
         """
         headers = {'Authorization': 'Bearer {}'.format(self.credential_manager.access_token)}
         print data
-        json_r = requests.post(url=url,headers=headers,json=data)
+        json_r = requests.post(url=url, headers=headers, json=data)
         json_r.raise_for_status()
         return json_r.json()
 
-    def put_request_bookingsync(self,url,data):
+    def put_request_bookingsync(self, url, data):
         """Send POST request to bookingSync and return Json format object.
         Pass the credential in the header.
 
@@ -86,22 +86,22 @@ class GenericStore:
         """
         headers = {'Authorization': 'Bearer {}'.format(self.credential_manager.access_token)}
         print data
-        json_r = requests.put(url=url,headers=headers,json=data)
+        json_r = requests.put(url=url, headers=headers, json=data)
         json_r.raise_for_status()
         return json_r.json()
 
-    def delete_request_bookingsync(self,url):
+    def delete_request_bookingsync(self, url):
         """Send DELETE request to bookingSync.
         Pass the credential in the header.
 
         :param url: url to post request to.
         """
         headers = {'Authorization': 'Bearer {}'.format(self.credential_manager.access_token)}
-        r = requests.delete(url=url,headers=headers)
+        r = requests.delete(url=url, headers=headers)
         r.raise_for_status()
         return r.status_code
 
-    def post(self,entity):
+    def post(self, entity):
         """API POST call to create entity.
         :param entity: Entity to create.
         :type  entity: bookingsynclord.entities.Entity
@@ -109,25 +109,25 @@ class GenericStore:
         """
 
         logger.debug("Calling POST for entity : {}".format(self.entity_type))
-        endpoint = self.get_endpoint("POST",entity)
+        endpoint = self.get_endpoint("POST", entity)
         url = GenericStore.build_url(endpoint)
-        json = self.post_request_bookingsync(url,entity._to_json_list())
+        json = self.post_request_bookingsync(url, entity._to_json_list())
         entity.id = json[entity.entity_type][0]['id']
         return entity
 
-    def delete(self,entity):
+    def delete(self, entity):
         """API delete call on entity.
         :param entity: Entity to delete.
         :type  entity: bookingsynclord.entities.Entity
         :rype        : int, status code of request
         """
         logger.debug("Calling DELETE for entity : {}".format(self.entity_type))
-        endpoint = self.get_endpoint("DELETE",entity)
+        endpoint = self.get_endpoint("DELETE", entity)
         url = GenericStore.build_url(endpoint)
         r = self.delete_request_bookingsync(url)
         return r
 
-    def put(self,entity):
+    def put(self, entity):
         """API PUT call to update entity.
         :param entity: Entity to update.
         :type  entity: bookingsynclord.entities.Entity
@@ -135,9 +135,9 @@ class GenericStore:
         """
 
         logger.debug("Calling PUT for entity : {}".format(self.entity_type))
-        endpoint = self.get_endpoint("PUT",entity)
+        endpoint = self.get_endpoint("PUT", entity)
         url = GenericStore.build_url(endpoint)
-        r = self.put_request_bookingsync(url,entity._to_json_list())
+        r = self.put_request_bookingsync(url, entity._to_json_list())
         return r
 
     def list_json(self, page=1, filters={}):
@@ -152,7 +152,7 @@ class GenericStore:
         json = self.get_request_bookingsync(url, page=page, filters=filters)
         return json
 
-    def get(self,id, filters={}):
+    def get(self, id, filters={}):
         """return a single element of entity
         :param id: ID of the element queried
         :type  id: string or integer
@@ -163,7 +163,7 @@ class GenericStore:
         new_entity.load_from_json(json[self.entity_type][0])
         return new_entity
 
-    def get_json_by_id(self,id, filters={}):
+    def get_json_by_id(self, id, filters={}):
         """return a single element of entity in JSON format
         :param id: ID of the element queried
         :type  id: string or integer
@@ -176,4 +176,3 @@ class GenericStore:
         json = self.get_request_bookingsync(url, filters=filters)
         logger.debug("returned : {}".format(json))
         return json
-
