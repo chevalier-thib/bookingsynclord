@@ -46,5 +46,5 @@ class BookingSyncAPI:
         self.rental_fee_store = RentalFeeStore(self.credential_manager)
         self.fee_store = FeeStore(self.credential_manager)
         self.photo_store = PhotoStore(self.credential_manager)
-        self.rental_amenity = RentalAmenityStore(self.credential_manager)
-        self.amenity = AmenityStore(self.credential_manager)
+        self.rentals_amenities_store = RentalAmenityStore(self.credential_manager)
+        self.amenities_store = AmenityStore(self.credential_manager)

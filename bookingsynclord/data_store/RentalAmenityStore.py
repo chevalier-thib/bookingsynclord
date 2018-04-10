@@ -7,4 +7,4 @@ class RentalAmenityStore(GenericStore):
     BookingSync doc : http://developers.bookingsync.com/reference/endpoints/rentals_amenities/
     """
     def __init__(self,credential_manager):
-        super(RentalAmenityStore, self).__init__(credential_manager, "rental_amenities")
+        super(RentalAmenityStore, self).__init__(credential_manager, "rentals_amenities")

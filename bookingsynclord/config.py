@@ -91,12 +91,12 @@ BOOKINGSYNC_ENDPOINT = {
                "DELETE": "/photo/{id}",
                },
     "rentals_amenities": {"LIST": "/rentals_amenities",
-                          "GET": "/rentals_amenities/{amenities_id}",
+                          "GET": "/rentals_amenities/{id}",
                           "POST": "/rentals/{rental_id}/rentals_amenities",
-                          "PUT": "/rentals_amenities/{amenities_id}",
-                          "DELETE": "/rentals_amenities/{amenities_id}",
+                          "PUT": "/rentals_amenities/{id}",
+                          "DELETE": "/rentals_amenities/{id}",
                           },
     "amenities": {"LIST": "/amenities",
-                  "GET": "/amenities/{amenity_id}",
+                  "GET": "/amenities/{id}",
                   }
 }
