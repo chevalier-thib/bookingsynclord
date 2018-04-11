@@ -2,7 +2,7 @@ from Entity import Entity
 
 
 class RentalAmenity(Entity):
-    ENTITY_TYPE = "rental_amenities"
+    ENTITY_TYPE = "rentals_amenities"
     """Represent a Rental Amenitie element.
 
     Documentation : http://developers.bookingsync.com/reference/endpoints/rentals_amenities/
