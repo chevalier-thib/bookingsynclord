@@ -21,6 +21,11 @@ from data_store.NightlyRateMapStore import NightlyRateMapStore
 from data_store.PhotoStore import PhotoStore
 from data_store.RentalAmenityStore import RentalAmenityStore
 from data_store.AmenityStore import AmenityStore
+from data_store.BathroomStore import BathroomStore
+from data_store.BedroomStore import BedroomStore
+from data_store.LivingRoomStore import LivingRoomStore
+from data_store.ChangeOverStore import ChangeOverStore
+
 
 logger = logging.getLogger(__name__)
 
@@ -48,3 +53,7 @@ class BookingSyncAPI:
         self.photo_store = PhotoStore(self.credential_manager)
         self.rentals_amenities_store = RentalAmenityStore(self.credential_manager)
         self.amenities_store = AmenityStore(self.credential_manager)
+        self.bedrooms_store = BedroomStore(self.credential_manager)
+        self.bathrooms_store = BathroomStore(self.credential_manager)
+        self.living_rooms_store = LivingRoomStore(self.credential_manager)
+        self.change_overs_store = ChangeOverStore(self.credential_manager)
