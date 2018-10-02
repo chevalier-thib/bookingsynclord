@@ -120,4 +120,7 @@ BOOKINGSYNC_ENDPOINT = {
     "change_overs": {"LIST": "/change_overs",
                      "GET": "/change_overs/{id}",
                      },
+    "destinations": {"LIST": "/destinations",
+                     "GET": "/destinations/{id}",
+                     },
 }

@@ -25,6 +25,7 @@ from data_store.BathroomStore import BathroomStore
 from data_store.BedroomStore import BedroomStore
 from data_store.LivingRoomStore import LivingRoomStore
 from data_store.ChangeOverStore import ChangeOverStore
+from data_store.DestinationStore import DestinationStore
 
 
 logger = logging.getLogger(__name__)
@@ -57,3 +58,4 @@ class BookingSyncAPI:
         self.bathrooms_store = BathroomStore(self.credential_manager)
         self.living_rooms_store = LivingRoomStore(self.credential_manager)
         self.change_overs_store = ChangeOverStore(self.credential_manager)
+        self.destinations_store = DestinationStore(self.credential_manager)
